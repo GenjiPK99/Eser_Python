@@ -1,0 +1,6 @@
+t1  = (1,2)
+t2 = (3,4)
+myLists = list(t1)
+myLists2 = list(t2)
+myLists3 = (myLists + myLists2)
+print(myLists3)
