@@ -1,18 +1,21 @@
 # Definisci la classe ContoCorrente
-class ContoCorrente:
-    
-    def __init__(self, nome , conto, importo):
+class Conto:
+    def __init__(self , nome , conto):
         self.nome = str(nome)
         self.conto = int(conto)
-        self.__saldo = int(importo)
+
+class ContoCorrente(Conto):
+    
+    def __init__(self, nome , conto, importo):
+        super().__init__(nome, conto)
+        self.__saldo = float(importo)
         
- 
     def preleva(self , importo):
-        importo = int(input("Inserisci l'importo da prelevare: \n"))
+        importo = float(input("Inserisci l'importo da prelevare: \n"))
         self.__saldo -= importo 
         
     def deposita(self , importo):
-        importo = int(input("Inserisci l'importo da depositare: \n"))
+        importo = float(input("Inserisci l'importo da depositare: \n"))
         self.__saldo += importo
         
     @property
@@ -27,6 +30,7 @@ class ContoCorrente:
     def descrizione (self):
         print("Intestatario:{}".format(self.nome) + "\n" ,"N.conto:{}".format(self.conto)+"\n" ,"Saldo Totale:{}".format(self.__saldo) + "\n")
 
+ 
 myContoCorrente1 = ContoCorrente("Domenico Caraviello", 78662448521 , 300.00)
 myContoCorrente1.preleva(0)
 myContoCorrente1.descrizione()
