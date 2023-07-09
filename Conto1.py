@@ -1,9 +1,10 @@
-# Definisci la classe ContoCorrente
+# Definisco la superclasse Conto
 class Conto:
     def __init__(self , nome , conto):
         self.nome = str(nome)
         self.conto = int(conto)
 
+# Definisco la classe ContoCorrente
 class ContoCorrente(Conto):
     
     def __init__(self, nome , conto, importo):
@@ -30,10 +31,23 @@ class ContoCorrente(Conto):
     def descrizione (self):
         print("Intestatario:{}".format(self.nome) + "\n" ,"N.conto:{}".format(self.conto)+"\n" ,"Saldo Totale:{}".format(self.__saldo) + "\n")
 
- 
-myContoCorrente1 = ContoCorrente("Domenico Caraviello", 78662448521 , 300.00)
-myContoCorrente1.preleva(0)
-myContoCorrente1.descrizione()
-myContoCorrente1.deposita(0)
-myContoCorrente1.descrizione()
+# Definisco la classe GestoreContiCorrente
+class GestoreContiCorrente:
+    
+    @staticmethod 
+    def bonifico(sorgente , destinazione , importo):
+        importo = float(input("Inserisci l'importo da bonificare: \n"))
         
+        sorgente.preleva(importo)
+        destinazione.deposita(importo)
+
+myContoCorrente1 = ContoCorrente("Domenico Caraviello", 78662448521 , 300.00)  
+myContoCorrente2 = ContoCorrente ('Silvia Wu' , 78662448522 , 800.00)
+
+myContoCorrente1.descrizione()
+myContoCorrente2.descrizione()
+
+GestoreContiCorrente.bonifico(myContoCorrente1, myContoCorrente2, 0)
+
+myContoCorrente1.descrizione()
+myContoCorrente2.descrizione()
