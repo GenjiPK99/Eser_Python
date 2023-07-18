@@ -12,11 +12,11 @@ class ContoCorrente(Conto):
         self.__saldo = float(importo)
         
     def preleva(self , importo):
-        importo = float(input("Inserisci l'importo da prelevare: \n"))
+        # importo = float(input("Inserisci l'importo da prelevare: \n"))
         self.__saldo -= importo 
         
     def deposita(self , importo):
-        importo = float(input("Inserisci l'importo da depositare: \n"))
+        # importo = float(input("Inserisci l'importo da depositare: \n"))
         self.__saldo += importo
         
     @property
@@ -43,9 +43,6 @@ class GestoreContiCorrente:
 
 myContoCorrente1 = ContoCorrente("Domenico Caraviello", 78662448521 , 300.00)  
 myContoCorrente2 = ContoCorrente ('Silvia Wu' , 78662448522 , 800.00)
-
-myContoCorrente1.descrizione()
-myContoCorrente2.descrizione()
 
 GestoreContiCorrente.bonifico(myContoCorrente1, myContoCorrente2, 0)
 
